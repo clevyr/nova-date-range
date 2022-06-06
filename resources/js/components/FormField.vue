@@ -9,10 +9,11 @@
                 :value="value"
                 :seperator="seperator"
                 :dateFormat="format"
+                :altFormat="altFormat"
+                :altInput="altInput"
                 :placeholder="placeholder"
                 @change="handleChange"
             />
-
             <p v-if="hasError" class="my-2 text-danger">
                 {{ firstError }}
             </p>
@@ -34,6 +35,12 @@
             },
             placeholderFormat() {
                 return this.field.placeholderFormat || 'YYYY-MM-DD';
+            },
+            altFormat() {
+                return this.field.altFormat || 'F j, Y';
+            },
+            altInput() {
+                return this.field.altInput || false;
             },
             seperator() {
                 return this.field.seperator;

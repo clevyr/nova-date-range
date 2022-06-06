@@ -85,6 +85,21 @@ class DateRange extends Field
         return $this->withMeta(['placeholderFormat' => $format]);
     }
 
+    public function altInput($bool)
+    {
+      return $this->withMeta([
+        'altInput' => $bool
+      ]);
+    }
+
+    public function altFormat($format)
+    {
+      return $this->withMeta([
+        'altFormat' => $format,
+        'altInput' => true
+      ]);
+    }
+
 	/**
 	 * Indicate that the field should be nullable.
 	 *

@@ -13,7 +13,7 @@ export default {
         placeholder: {
             type: String,
             default: () => {
-                return moment().format('YYYY-MM-DD') + ` ${this.default.props.seperator.default} ` + moment().format('YYYY-MM-DD')
+                return moment().format('M d, Y') + ` ${this.default.props.seperator.default} ` + moment().format('M d, Y')
             },
         },
         disabled: {
@@ -23,6 +23,14 @@ export default {
         dateFormat: {
             type: String,
             default: 'Y-m-d',
+        },
+        altFormat: {
+            type: String,
+            default: 'F j, Y',
+        },
+        altInput: {
+            type: Boolean,
+            default: false,
         },
         seperator: {
             type: String,
@@ -41,6 +49,8 @@ export default {
             this.flatpickr = flatpickr(this.$refs.datePicker, {
                 onClose: this.onChange,
                 dateFormat: this.dateFormat,
+                altInput: this.altInput,
+                altFormat: this.altFormat,
                 allowInput: true,
                 mode: 'range',
                 locale: {
